@@ -10,8 +10,8 @@ import jp.co.mixi.androidtraining2022.databinding.LapTimeItemBinding
 class LapTimeAdapter : ListAdapter<LapTime, LapTimeAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflator = LayoutInflater.from(parent.context)
-        val binding = LapTimeItemBinding.inflate(inflator, parent, false)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = LapTimeItemBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -19,19 +19,7 @@ class LapTimeAdapter : ListAdapter<LapTime, LapTimeAdapter.ViewHolder>(DiffCallb
         val lapTime = getItem(position)
 
         holder.binding.lapNumber.text = lapTime.number.toString()
-
-        val time = lapTime.time
-
-        val minute = time / (1000 * 60)
-        val second = time / 1000 % 60
-        val milliSecond = time % 1000
-
-        holder.binding.lapTime.text = String.format(
-            "%02d:%02d.%02d",
-            minute,
-            second,
-            milliSecond / 10 // 上位2桁を表示するため
-        )
+        holder.binding.lapTime.text = "TODO"
     }
 
     class ViewHolder(
